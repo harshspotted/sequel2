@@ -3,7 +3,7 @@ import { useState } from "react";
 // import { ReactComponent as OtherIcon } from "../../assets/images/docs.svg";
 
 // import { ReactComponent as CrossGrayIcon } from "../../assets/icons/cross-gray.svg";
-
+import { Cross } from "lucide-react";
 type Props = {
   thisFile: { name: string; content: string; createdDate: number, type: string };
   handleRemoveFile: () => void;
@@ -64,10 +64,10 @@ const FileTag = ({ thisFile, handleRemoveFile }: Props) => {
 			) : (
 				showTrashIcon && (
 					<div className="items-center">
-						{/* <CrossGrayIcon
+						<Cross
 							onClick={() => handleRemoveFile()}
 							className="absolute top-0 right-0 mt-3 mr-3 cursor-pointer"
-						/> */}
+						/>
 					</div>
 				)
 			)}

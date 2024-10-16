@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <div className="App flex flex-col px-4 pt-10 h-[100vh] bg-[rgba(0,0,0,0.24)] noDrag font-satoshi">
+      <div className="App flex flex-col px-4 pt-2 h-[100vh] bg-[rgba(0,0,0,0.24)] noDrag font-satoshi">
         <Routes>
           <Route element={<PageLayout />}>
             <Route
