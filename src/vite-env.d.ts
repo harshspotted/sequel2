@@ -7,3 +7,7 @@ declare const compilerOptions: {
 const options: compilerOptions = {
   typeRoots: ["./src/types", "./node_modules/@types"],
 };
+declare module "*.png";
+declare module "*.svg";
+declare module "*.jpeg";
+declare module "*.jpg";

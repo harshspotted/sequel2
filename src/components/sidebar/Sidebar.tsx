@@ -51,19 +51,19 @@ const MENU = [
     path: "/sheets",
     icon: SettingsIcon,
   },
-  {
-    title: "Whoop",
-    subtitle: "Track sleep, workouts & more.",
-    path: "/whoop",
-    icon: WhoopIcon,
-  },
-  {
-    title: "Oura",
-    subtitle: "All your Oura data in one place",
-    path: "/oura",
-    icon: OuraIcon,
-    className: "w-14 h-14 mr-2",
-  },
+  // {
+  //   title: "Whoop",
+  //   subtitle: "Track sleep, workouts & more.",
+  //   path: "/whoop",
+  //   icon: WhoopIcon,
+  // },
+  // {
+  //   title: "Oura",
+  //   subtitle: "All your Oura data in one place",
+  //   path: "/oura",
+  //   icon: OuraIcon,
+  //   className: "w-14 h-14 mr-2",
+  // },
   {
     title: "Supplements",
     subtitle: "Stay on top of your game",

@@ -184,35 +184,50 @@ const Chat = () => {
       console.error(e);
     }
 
-    // try {
-    // 	therapies = JSON.parse(localStorage.getItem("therapiesList") ?? "")?.map(
-    // 		(therapy: TherapyItem) => {
-    // 			return `${therapy.label} - In progress: ${therapy.inProgress}`;
-    // 		}
-    // 	);
-    // } catch (e) {
-    // 	console.error(e);
-    // }
+    try {
+      const therapiesData = localStorage.getItem("therapiesList");
+    
+      if (therapiesData) {
+        therapies = JSON.parse(therapiesData)?.map((therapy: TherapyItem) => {
+          return `${therapy.label} - In progress: ${therapy.inProgress}`;
+        });
+      } else {
+        therapies = [];
+        console.warn("No therapies found in localStorage.");
+      }
+    } catch (e) {
+      console.error("Error parsing therapies data:", e);
+    }
+    
+    try {
+      const testsData = localStorage.getItem("testsList");
+    
+      if (testsData) {
+        tests = JSON.parse(testsData)?.map((test: TestType) => {
+          return `${test.test_name} - Ordered: ${test.ordered} - Taken: ${test.taken}`;
+        });
+      } else {
+        tests = [];
+        console.warn("No tests found in localStorage.");
+      }
+    } catch (e) {
+      console.error("Error parsing tests data:", e);
+    }
 
-    // try {
-    // 	tests = JSON.parse(localStorage.getItem("testsList") ?? "")?.map(
-    // 		(test: TestType) => {
-    // 			return `${test.test_name} - Ordered: ${test.ordered} - Taken ${test.taken}`;
-    // 		}
-    // 	);
-    // } catch (e) {
-    // 	console.error(e);
-    // }
+    try {
+      const storedData = localStorage.getItem("supplementsList");
 
-    // try {
-    // 	supplements = JSON.parse(
-    // 		localStorage.getItem("supplementsList") ?? ""
-    // 	)?.map((supplement: SupplementType) => {
-    // 		return `${supplement.supplement} - ID: ${supplement.id} - Ordered: ${supplement.ordered} - Dosage ${supplement.dosage} - inProgress: ${supplement.inProgress}`;
-    // 	});
-    // } catch (e) {
-    // 	console.error(e);
-    // }
+      if (storedData) {
+        supplements = JSON.parse(storedData)?.map((supplement: SupplementType) => {
+          return `${supplement.supplement} - ID: ${supplement.id} - Ordered: ${supplement.ordered} - Dosage: ${supplement.dosage} - inProgress: ${supplement.inProgress}`;
+        });
+      } else {
+        supplements = [];
+        console.warn("No supplements found in localStorage.");
+      }
+    } catch (e) {
+      console.error("Error parsing supplements data:", e);
+    }
 
     try {
       journal = getJournalData();
@@ -223,9 +238,9 @@ const Chat = () => {
     const allData = JSON.stringify({
       //@ts-ignore
       files: files,
-      // therapies: therapies,
-      // tests: tests,
-      // supplements: supplements,
+      therapies: therapies,
+      tests: tests,
+      supplements: supplements,
       journal: journal,
       whoop: whoopData,
     });
