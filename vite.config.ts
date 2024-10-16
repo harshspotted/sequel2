@@ -39,7 +39,7 @@ export default defineConfig({
   server: {
     port: 3000, // Specify the development server port
   },
-  // Additional configuration for Electron
+
   define: {
     "process.env.REACT_APP_GROQ_API_KEY": JSON.stringify(
       process.env.REACT_APP_GROQ_API_KEY
