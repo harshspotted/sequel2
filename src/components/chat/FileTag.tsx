@@ -1,9 +1,7 @@
 import { useState } from "react";
-// import { ReactComponent as PdfIcon } from "../../assets/images/pdf.svg";
-// import { ReactComponent as OtherIcon } from "../../assets/images/docs.svg";
-
-// import { ReactComponent as CrossGrayIcon } from "../../assets/icons/cross-gray.svg";
-import { Cross } from "lucide-react";
+import { File } from "lucide-react";
+import { LucideFileJson2 } from "lucide-react";
+import { DeleteIcon } from "lucide-react";
 type Props = {
   thisFile: { name: string; content: string; createdDate: number, type: string };
   handleRemoveFile: () => void;
@@ -43,11 +41,11 @@ const FileTag = ({ thisFile, handleRemoveFile }: Props) => {
 			onMouseEnter={() => setShowTrashIcon(true)}
 			onMouseLeave={() => setShowTrashIcon(false)}
 		>
-			{/* {file.type === "application/pdf" ? (
-				// <PdfIcon className={`self-center`} />
+			{file.type === "application/pdf" ? (
+				 <File className={`self-center`} />
 			) : (
-				// <OtherIcon className={`self-center`} />
-			)} */}
+				 <LucideFileJson2 className={`self-center`} />
+			)}
 			<div className={`max-w-full cursor-default`}>
 				<div className="text-start">
 					<div className="text-[#F1F1F1] font-medium truncate text-ellipsis">
@@ -64,7 +62,7 @@ const FileTag = ({ thisFile, handleRemoveFile }: Props) => {
 			) : (
 				showTrashIcon && (
 					<div className="items-center">
-						<Cross
+						<DeleteIcon
 							onClick={() => handleRemoveFile()}
 							className="absolute top-0 right-0 mt-3 mr-3 cursor-pointer"
 						/>
