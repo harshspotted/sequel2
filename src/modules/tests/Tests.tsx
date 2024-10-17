@@ -1,12 +1,12 @@
 import {
-	Switch,
 	Table,
 	TableBody,
 	TableCell,
 	TableHead,
-	TableHeaderCell,
+	TableHeader,
 	TableRow,
-} from "@tremor/react";
+} from "../../components/ui/table";
+import { Switch } from "@tremor/react";
 import { testsList, TestType } from "./testsList";
 import { useEffect, useState } from "react";
 import { TrashIcon, XIcon } from "lucide-react";
@@ -76,15 +76,15 @@ const Tests = () => {
 					</div>
 					<div className="w-full ">
 						<Table>
-							<TableHead>
-								<TableRow>
-									{editMode && <TableHeaderCell></TableHeaderCell>}
-									<TableHeaderCell>Test</TableHeaderCell>
-									<TableHeaderCell>Name</TableHeaderCell>
-									<TableHeaderCell>Ordered</TableHeaderCell>
-									<TableHeaderCell>Taken</TableHeaderCell>
+							<TableHeader>
+								<TableRow className="bg-white hover:bg-white ">
+									{editMode && <TableHead></TableHead>}
+									<TableHead>Test</TableHead>
+									<TableHead>Name</TableHead>
+									<TableHead>Ordered</TableHead>
+									<TableHead>Taken</TableHead>
 								</TableRow>
-							</TableHead>
+							</TableHeader>
 							<TableBody className="text-slate-200">
 								{tests.map((item: TestType) => (
 									<TableRow key={item.id}>

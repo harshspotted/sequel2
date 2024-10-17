@@ -109,14 +109,16 @@ const Sidebar = () => {
                 }
               )}
             >
-              <img
+            <div className="flex items-center">
+            <img
                 src={menuItem.icon}
                 alt={`${menuItem.title} Icon`}
-                className="w-6 h-6"
+                className="w-10 h-10 mr-1"
               />
               <Link to={menuItem.path} className="hover:underline">
                 {menuItem.title}
               </Link>
+            </div>
             </li>
           ))}
         </ul>

@@ -1,12 +1,13 @@
 import {
-	Switch,
 	Table,
 	TableBody,
 	TableCell,
 	TableHead,
-	TableHeaderCell,
+	TableHeader,
 	TableRow,
-} from "@tremor/react";
+} from "../../components/ui/table";
+//import { Switch } from "../../components/ui/switch";
+import { Switch } from "@tremor/react";
 import { SupplementType, supplementsList } from "./supplementsList";
 import { useEffect, useState } from "react";
 import {
@@ -106,17 +107,17 @@ const Supplements = () => {
 						</div>
 					</div>
 					<div className="w-full">
-						<Table>
-							<TableHead>
-								<TableRow>
-									{editMode && <TableHeaderCell></TableHeaderCell>}
-									<TableHeaderCell>Supplement</TableHeaderCell>
-									<TableHeaderCell>Dosage</TableHeaderCell>
-									<TableHeaderCell>Ordered</TableHeaderCell>
-									<TableHeaderCell>In progress</TableHeaderCell>
-									<TableHeaderCell>Link</TableHeaderCell>
+						<Table className="">
+							<TableHeader className="">
+								<TableRow className="bg-white hover:bg-white ">
+									{editMode && <TableHead></TableHead>}
+									<TableHead className="">Supplement</TableHead>
+<TableHead>Dosage</TableHead>
+<TableHead>Ordered</TableHead>
+<TableHead>In progress</TableHead>
+<TableHead>Link</TableHead>
 								</TableRow>
-							</TableHead>
+							</TableHeader>
 							<TableBody className="text-slate-200">
 								{supplements.map((item: SupplementType) => (
 									<TableRow key={item.id}>
@@ -147,12 +148,14 @@ const Supplements = () => {
 										</TableCell>
 										<TableCell>
 											<Switch
+												id="ordered"
 												checked={item.ordered}
 												onChange={() => toggleOrdered(item.id)}
 											/>
 										</TableCell>
 										<TableCell>
 											<Switch
+											id="inProgress"
 												checked={item.inProgress}
 												onChange={() => toggleInProgress(item.id)}
 											/>

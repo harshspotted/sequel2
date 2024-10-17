@@ -1,12 +1,12 @@
 import {
-	Switch,
 	Table,
 	TableBody,
 	TableCell,
 	TableHead,
-	TableHeaderCell,
+	TableHeader,
 	TableRow,
-} from "@tremor/react";
+} from "../../components/ui/table";
+import { Switch } from "@tremor/react";
 import { THERAPIES_LIST, TherapyItem } from "./therapiesList";
 import { useEffect, useState } from "react";
 import { ArrowRightIcon, DotsVerticalIcon } from "@radix-ui/react-icons";
@@ -53,7 +53,7 @@ const Therapies = () => {
 			<div className="flex w-full flex-1 overflow-y-auto overflow-x-hidden pr-1">
 				<div className="flex flex-col w-full flex-1 overflow-auto pr-1 px-4 pt-4">
 					<div className="flex w-full justify-between items-center mb-8">
-						<div className="font-bold text-2xl text-white">Tests</div>
+						<div className="font-bold text-2xl text-white">Therapies</div>
 						<div className="flex flex-row gap-2">
 							<TherapiesAdd onSubmit={addTherapy} />
 							{editMode ? (
@@ -70,18 +70,18 @@ const Therapies = () => {
 						</div>
 					</div>
 					<div className="w-full">
-						<Table>
-							<TableHead>
-								<TableRow>
-									{editMode && <TableHeaderCell></TableHeaderCell>}
-									<TableHeaderCell>Therapy</TableHeaderCell>
-									<TableHeaderCell>In progress</TableHeaderCell>
-									<TableHeaderCell>Link</TableHeaderCell>
+						<Table className="">
+							<TableHeader>
+								<TableRow className="bg-white hover:bg-white">
+									{editMode && <TableHead></TableHead>}
+									<TableHead>Therapy</TableHead>
+									<TableHead>In progress</TableHead>
+									<TableHead>Link</TableHead>
 								</TableRow>
-							</TableHead>
-							<TableBody className="text-slate-200">
+							</TableHeader>
+							<TableBody className="text-slate-200 ">
 								{therapies.map((item: TherapyItem) => (
-									<TableRow key={item.label}>
+									<TableRow key={item.label} className=" ">
 										{editMode && (
 											<TableCell className="text-center">
 												<TrashIcon
@@ -90,7 +90,7 @@ const Therapies = () => {
 												/>
 											</TableCell>
 										)}
-										<TableCell>{item.label}</TableCell>
+										<TableCell className="">{item.label}</TableCell>
 										<TableCell>
 											<Switch
 												checked={item.inProgress}
