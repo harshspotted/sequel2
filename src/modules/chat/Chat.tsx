@@ -129,6 +129,14 @@ const Chat = () => {
     useState<boolean>(false);
   const [streamedMessage, setStreamedMessage] = useState("");
 
+  const handleScroll = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+  useEffect(() => {
+    handleScroll();
+  }, [messages, streamedMessage]);
   useEffect(() => {
     ChatEmitter.on("updateMessage", (message: any) => {
       setStreamedMessage((p) => (p += message.detail));
@@ -286,7 +294,7 @@ const Chat = () => {
           height: 20,
         }}
       >
-        <div className="sticky top-0 right-0 text-white text-right flex justify-end">
+        <div className="sticky top-0 right-0  text-white text-right flex justify-end">
           {isClearingConversation ? (
             <CrumpledPaperIcon className="w-8 h-8 cursor-pointer animate-spin" />
           ) : (
@@ -311,7 +319,7 @@ const Chat = () => {
         {loading && streamedMessage ? (
           <MessageItem message={{ message: streamedMessage, isSent: false }} />
         ) : null}
-        <div ref={messagesEndRef} />
+           <div ref={messagesEndRef} />
       </div>
       <ReplyBoxNoDocs
         onSend={handleSendMessage}

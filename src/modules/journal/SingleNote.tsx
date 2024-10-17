@@ -5,6 +5,8 @@
 //import MicRecorder from "mic-recorder-to-mp3";
 import Spinner from "../../../src/components/spinner";
 //import { transcribeAudio } from "../../../src/helpers/transcribe";
+import { debounce } from "lodash";
+import { storeJournalData } from "../../../src/helpers/storage";
 
 // const recorder = new MicRecorder({
 //   bitRate: 128,
@@ -105,17 +107,17 @@ const SingleNote = ({
   // );
 
   // eslint-disable-next-line
-  // const saveInput = useCallback(
-  // 	debounce((nextValue) => {
-  // 		// storeJournalData(nextValue);
-  // 	}, 1000),
-  // 	[]
-  // );
+  const saveInput = useCallback(
+  	debounce((nextValue) => {
+  		storeJournalData(nextValue);
+  	}, 1000),
+  	[]
+  );
 
   const handleChange = (event: any) => {
     const nextValue = event.target.value;
     setValue(nextValue, index);
-    // saveInput(nextValue);
+   saveInput(nextValue);
   };
   return (
     <div>

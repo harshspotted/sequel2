@@ -66,7 +66,7 @@ const MessageItem = ({ message }: Props) => {
 				>
 					<MarkdownPreview
 						wrapperElement={{
-							"data-color-mode": message.isSent ? "dark" : "light",
+							"data-color-mode": message.isSent ? "light" : "dark",
 						}}
 						source={convertLatexInMarkdown(message.message)}
 						style={{
@@ -78,6 +78,7 @@ const MessageItem = ({ message }: Props) => {
 							fontFamily: "Satoshi",
 						}}
 					/>
+					{/* isSent , msg from our side */}
 				</div>
 			</div>
 		</div>

@@ -65,18 +65,18 @@ function App() {
               path="/therapies"
               element={<Therapies />}
             />
-            <Route
+            {/* <Route
               path="/videos"
               element={<Videos />}
-            />
+            /> */}
             <Route
               path="/tests"
               element={<Tests />}
             />
-            <Route
+            {/* <Route
               path="/organs"
               element={<Organs />}
-            />
+            /> */}
             <Route
               path="/insights"
               element={<Insights />}
