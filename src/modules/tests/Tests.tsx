@@ -6,7 +6,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "../../components/ui/table";
-import { Switch } from "@tremor/react";
+import { Switch } from "../../components/ui/switch";
 import { testsList, TestType } from "./testsList";
 import { useEffect, useState } from "react";
 import { TrashIcon, XIcon } from "lucide-react";
@@ -101,13 +101,13 @@ const Tests = () => {
 										<TableCell>
 											<Switch
 												checked={item.ordered}
-												onChange={() => toggleOrdered(item.id)}
+												onCheckedChange={() => toggleOrdered(item.id)}
 											/>
 										</TableCell>
 										<TableCell>
 											<Switch
 												checked={item.taken}
-												onChange={() => toggleTaken(item.id)}
+												onCheckedChange={() => toggleTaken(item.id)}
 											/>
 										</TableCell>
 									</TableRow>

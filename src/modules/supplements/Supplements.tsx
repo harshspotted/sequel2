@@ -6,8 +6,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "../../components/ui/table";
-//import { Switch } from "../../components/ui/switch";
-import { Switch } from "@tremor/react";
+import { Switch } from "../../components/ui/switch";
 import { SupplementType, supplementsList } from "./supplementsList";
 import { useEffect, useState } from "react";
 import {
@@ -148,16 +147,14 @@ const Supplements = () => {
 										</TableCell>
 										<TableCell>
 											<Switch
-												id="ordered"
 												checked={item.ordered}
-												onChange={() => toggleOrdered(item.id)}
+												onCheckedChange={() => toggleOrdered(item.id)}
 											/>
 										</TableCell>
 										<TableCell>
 											<Switch
-											id="inProgress"
 												checked={item.inProgress}
-												onChange={() => toggleInProgress(item.id)}
+												onCheckedChange={() => toggleInProgress(item.id)}
 											/>
 										</TableCell>
 										<TableCell>
@@ -167,11 +164,6 @@ const Supplements = () => {
 													target="_blank"
 													rel="noopener noreferrer"
 													className="gap-1 flex-row flex items-center"
-													onClick={(e) => {
-														e.preventDefault();
-														//@ts-ignore
-														window.loginWGauth.openExternal(item.link);
-													}}
 												>
 													Learn More
 													<ArrowRightIcon className="w-4 h-4 ml-2" />

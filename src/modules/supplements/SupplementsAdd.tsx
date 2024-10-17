@@ -8,7 +8,7 @@ import { Form, FormField, FormItem, FormLabel } from "../../components/ui/form";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { SupplementType } from "./supplementsList";
-import { Switch } from "@tremor/react";
+import { Switch } from "../../components/ui/switch";
 
 const FormSchema = z.object({
 	name: z.string({
@@ -19,6 +19,7 @@ const FormSchema = z.object({
 	}),
 	ordered: z.boolean(),
 	inProgress: z.boolean(),
+	link: z.string().optional(),
 });
 
 export const SupplementsAdd = ({
@@ -37,7 +38,7 @@ export const SupplementsAdd = ({
 		onSubmit({
 			supplement: value.name,
 			dosage: value.dosage,
-			link: "",
+			link: value.link??" " ,
 			inProgress: value.inProgress,
 			description: "",
 			ordered: value.ordered,
@@ -80,6 +81,7 @@ export const SupplementsAdd = ({
 										onChange={field.onChange}
 										defaultValue={field.value}
 										placeholder="Supplement name"
+										className="text-white"
 									/>
 									{fieldState.error && (
 										<p className="text-red-500">{fieldState.error.message}</p>
@@ -97,6 +99,7 @@ export const SupplementsAdd = ({
 										onChange={field.onChange}
 										defaultValue={field.value}
 										placeholder="Supplement dosage"
+										className="text-white"
 									/>
 									{fieldState.error && (
 										<p className="text-red-500">{fieldState.error.message}</p>
@@ -104,15 +107,33 @@ export const SupplementsAdd = ({
 								</FormItem>
 							)}
 						/>
+						   <FormField
+              control={form.control}
+              name="link"
+              render={({ field, fieldState }) => (
+                <FormItem>
+                  <FormLabel className="text-white">link</FormLabel>
+                  <Input
+                    onChange={field.onChange}
+                    defaultValue={field.value}
+                    placeholder="Therapy uri"
+                    className="text-white"
+                  />
+                  {fieldState.error && (
+                    <p className="text-red-500">{fieldState.error.message}</p>
+                  )}
+                </FormItem>
+              )}
+            />
 						<FormField
 							control={form.control}
 							name="ordered"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="text-white">Ordered</FormLabel>
+									<FormLabel className="text-white mr-4">Ordered</FormLabel>
 									<Switch
 										checked={field.value}
-										onChange={(v) => field.onChange(v)}
+										onCheckedChange={(v) => field.onChange(v)}
 									/>
 								</FormItem>
 							)}
@@ -122,18 +143,18 @@ export const SupplementsAdd = ({
 							name="inProgress"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="text-white">In progress</FormLabel>
+									<FormLabel className="text-white mr-4">In progress</FormLabel>
 									<Switch
 										checked={field.value}
-										onChange={(v) => field.onChange(v)}
+										onCheckedChange={(v) => field.onChange(v)}
 									/>
 								</FormItem>
 							)}
 						/>
 						<Button
-							style={{ marginTop: 24 }}
-							className="bg-white"
+							className="bg-gray-400 hover:bg-gray-600"
 							type="submit"
+							variant={"outline"}
 						>
               Add
 						</Button>

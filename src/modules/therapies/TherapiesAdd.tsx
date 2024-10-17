@@ -20,7 +20,7 @@ import {
 import { Input } from "../../../src/components/ui/input";
 import { Button } from "../../../src/components/ui/button";
 import { TherapyItem } from "./therapiesList";
-import { Switch } from "@tremor/react";
+import { Switch } from "../../../src/components/ui/switch";
 
 const FormSchema = z.object({
   label: z.string({
@@ -43,7 +43,7 @@ export const TherapiesAdd = ({
   const handleSubmit = (value: z.infer<typeof FormSchema>) => {
     onSubmit({
       label: value.label,
-      uri: value.uri ?? "",
+      uri:  "",
       inProgress: value.inProgress,
     });
     setOpen(false);
@@ -83,6 +83,7 @@ export const TherapiesAdd = ({
                     onChange={field.onChange}
                     defaultValue={field.value}
                     placeholder="Therapy label"
+                    className="text-white"
                   />
                   {fieldState.error && (
                     <p className="text-red-500">{fieldState.error.message}</p>
@@ -90,7 +91,7 @@ export const TherapiesAdd = ({
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name="uri"
               render={({ field, fieldState }) => (
@@ -100,30 +101,32 @@ export const TherapiesAdd = ({
                     onChange={field.onChange}
                     defaultValue={field.value}
                     placeholder="Therapy uri"
+                    autoFocus
+                    className="text-white"
                   />
                   {fieldState.error && (
                     <p className="text-red-500">{fieldState.error.message}</p>
                   )}
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="inProgress"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">In progress</FormLabel>
+                  <FormLabel className="text-white mr-2">In progress</FormLabel>
                   <Switch
                     checked={field.value}
-                    onChange={(v) => field.onChange(v)}
+                    onCheckedChange={(v) => field.onChange(v)}
                   />
                 </FormItem>
               )}
             />
             <Button
-              style={{ marginTop: 24 }}
-              className="bg-white"
-              type="submit"
+              	className="bg-gray-400 hover:bg-gray-600"
+                type="submit"
+                variant={"outline"}
             >
               Add
             </Button>

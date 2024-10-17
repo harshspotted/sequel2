@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Tooltip = ({ children, content }: { children: React.ReactNode; content: React.ReactNode }) => {
 	const [isVisible, setIsVisible] = useState<boolean>(false);
-	console.log('Tooltip Component: ', content);
+	//console.log('Tooltip Component: ', content);
 	const handleMouseEnter = () => {
 		setIsVisible(true);
 	};

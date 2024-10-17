@@ -6,10 +6,10 @@ import {
 	TableHeader,
 	TableRow,
 } from "../../components/ui/table";
-import { Switch } from "@tremor/react";
+import { Switch } from "../../components/ui/switch";
 import { THERAPIES_LIST, TherapyItem } from "./therapiesList";
 import { useEffect, useState } from "react";
-import { ArrowRightIcon, DotsVerticalIcon } from "@radix-ui/react-icons";
+import {  DotsVerticalIcon } from "@radix-ui/react-icons";
 import { TherapiesAdd } from "./TherapiesAdd";
 import { TrashIcon, XIcon } from "lucide-react";
 
@@ -76,7 +76,6 @@ const Therapies = () => {
 									{editMode && <TableHead></TableHead>}
 									<TableHead>Therapy</TableHead>
 									<TableHead>In progress</TableHead>
-									<TableHead>Link</TableHead>
 								</TableRow>
 							</TableHeader>
 							<TableBody className="text-slate-200 ">
@@ -94,28 +93,9 @@ const Therapies = () => {
 										<TableCell>
 											<Switch
 												checked={item.inProgress}
-												onChange={() => toggleInProgress(item.label)}
+												onCheckedChange={() => toggleInProgress(item.label)}
+											
 											/>
-										</TableCell>
-										<TableCell>
-											{item.uri ? (
-												<a
-													onClick={(e) => {
-														e.preventDefault();
-														//@ts-ignore
-														window.loginWGauth.openExternal(item.uri);
-													}}
-													href={item.uri}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="gap-1 flex-row flex items-center"
-												>
-													Learn More
-													<ArrowRightIcon className="w-4 h-4 ml-2" />
-												</a>
-											) : (
-												"N/A"
-											)}
 										</TableCell>
 									</TableRow>
 								))}

@@ -20,7 +20,7 @@ import {
 import { Input } from "../../../src/components/ui/input";
 import { Button } from "../../../src/components/ui/button";
 import { TestType } from "./testsList";
-import { Switch } from "@tremor/react";
+import { Switch } from "../../../src/components/ui/switch";
 
 const FormSchema = z.object({
   id: z.string({
@@ -90,6 +90,7 @@ export const TestsAdd = ({
                     onChange={field.onChange}
                     defaultValue={field.value}
                     placeholder="Test ID"
+                    className="text-white"
                   />
                   {fieldState.error && (
                     <p className="text-red-500">{fieldState.error.message}</p>
@@ -107,6 +108,7 @@ export const TestsAdd = ({
                     onChange={field.onChange}
                     defaultValue={field.value}
                     placeholder="Test name"
+                    className="text-white"
                   />
                   {fieldState.error && (
                     <p className="text-red-500">{fieldState.error.message}</p>
@@ -119,10 +121,10 @@ export const TestsAdd = ({
               name="ordered"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Ordered</FormLabel>
+                  <FormLabel className="text-white mr-2">Ordered</FormLabel>
                   <Switch
                     checked={field.value}
-                    onChange={(v) => field.onChange(v)}
+                    onCheckedChange={(v) => field.onChange(v)}
                   />
                 </FormItem>
               )}
@@ -132,18 +134,18 @@ export const TestsAdd = ({
               name="taken"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Taken</FormLabel>
+                  <FormLabel className="text-white mr-2">Taken</FormLabel>
                   <Switch
                     checked={field.value}
-                    onChange={(v) => field.onChange(v)}
+                    onCheckedChange={(v) => field.onChange(v)}
                   />
                 </FormItem>
               )}
             />
             <Button
-              style={{ marginTop: 24 }}
-              className="bg-white"
-              type="submit"
+             	className="bg-gray-400 hover:bg-gray-600"
+               type="submit"
+               variant={"outline"}
             >
               Add
             </Button>
