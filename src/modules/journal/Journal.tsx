@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getJournalData, storeJournalData } from "../../../src/helpers/storage";
-// import SingleNote from "./SingleNote";
+ import SingleNote from "./SingleNote";
 
 const Journal = () => {
   const [data, setData] = useState<
@@ -91,12 +91,12 @@ const Journal = () => {
         </div>
 
         <div className="mt-5 w-full">
-          {/* <SingleNote
+          <SingleNote
             index={42069}
             value={journalData}
             setValue={handleJournalChange}
             placeholder="This is your main journal. You can include things that you do everyday here instead of making a new note for that everyday. Jot down your thoughts..."
-          /> */}
+          />
         </div>
 
         <div className="mt-5 w-full">
@@ -111,11 +111,11 @@ const Journal = () => {
                   key={index}
                   className="mt-4"
                 >
-                  {/* <SingleNote
+                  <SingleNote
                     value={note.text}
                     setValue={(newText: string) => handleEdit(index, newText)}
                     index={index}
-                  /> */}
+                  />
                 </div>
               ))}
             </div>

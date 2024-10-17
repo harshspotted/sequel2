@@ -1,5 +1,4 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import PageLayout from "./components/layouts/PageLayout";
 import Labs from "./modules/labs/Labs";
 import { useEffect } from "react";
@@ -15,6 +14,7 @@ import Videos from "./modules/videos/Videos";
 import Tests from "./modules/tests/Tests";
 import Organs from "./modules/organs/Organs";
 import Insights from "./modules/insights/Insights";
+import { Toaster } from "./components/ui/toaster";
 
 const initAiConfig = () => {
   if (!getSelectedAIConfiguration()) {
@@ -35,6 +35,7 @@ function App() {
 
   return (
     <>
+    <Toaster/>
       <div className="App flex flex-col px-4 pt-2 h-[100vh] bg-[rgba(0,0,0,0.24)] noDrag font-satoshi">
         <Routes>
           <Route element={<PageLayout />}>
@@ -82,7 +83,6 @@ function App() {
             />
           </Route>
         </Routes>
-        <Toaster />
       </div>
     </>
   );

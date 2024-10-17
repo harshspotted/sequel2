@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { File } from "lucide-react";
 import { LucideFileJson2 } from "lucide-react";
-import { DeleteIcon } from "lucide-react";
+import { Trash } from "lucide-react";
 type Props = {
   thisFile: { name: string; content: string; createdDate: number, type: string };
   handleRemoveFile: () => void;
@@ -42,29 +42,31 @@ const FileTag = ({ thisFile, handleRemoveFile }: Props) => {
 			onMouseLeave={() => setShowTrashIcon(false)}
 		>
 			{file.type === "application/pdf" ? (
-				 <File className={`self-center`} />
+				 <File className={`self-center w-10 h-10 text-white`} />
 			) : (
-				 <LucideFileJson2 className={`self-center`} />
+				 <LucideFileJson2 className={`self-center w-10 h-10 text-white`} />
 			)}
-			<div className={`max-w-full cursor-default`}>
+			<div className={`max-w-full cursor-default space-y-4`}>
 				<div className="text-start">
 					<div className="text-[#F1F1F1] font-medium truncate text-ellipsis">
 						{file.name}
 					</div>
 				</div>
+				<div>
 				<p className="text-xs text-gray-100 mt-2">Available</p>
 				<p className="text-xs text-[#8E7469]">
 					{new Date(file?.createdDate)?.toISOString()?.split("T")[0]}
 				</p>
+				</div>
 			</div>
 			{loading ? (
 				<Spinner color="bg-red-400" />
 			) : (
 				showTrashIcon && (
 					<div className="items-center">
-						<DeleteIcon
+						<Trash
 							onClick={() => handleRemoveFile()}
-							className="absolute top-0 right-0 mt-3 mr-3 cursor-pointer"
+							className="absolute top-0 right-0 mt-2 mr-2 cursor-pointer"
 						/>
 					</div>
 				)

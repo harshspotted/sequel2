@@ -7,7 +7,7 @@ import * as PDFJSWorker from "pdfjs-dist/build/pdf.worker";
 // import * as pdfjsWorker from "pdfjs-dist/build/pdf.worker.mjs";
 import FileTag from "../../components/chat/FileTag";
 import { SkeletonFileTag } from "../../components/SkeletonFileTag";
-import toast from "react-hot-toast";
+import { toast } from "../../hooks/use-toast";
 import { FileType } from "../../helpers/types/file.types";
 import { makeOrgans } from "../../helpers/utils/makeOrgans";
 import { makeInsight } from "../../helpers/utils/makeInsight";
@@ -111,7 +111,9 @@ const Labs = () => {
 
   const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (loading) {
-      toast("Please wait for the current upload.");
+      toast({
+        description: "please wait for the current upload ",
+      });
       return;
     }
 
@@ -129,7 +131,9 @@ const Labs = () => {
       );
 
       if (allowedFiles.length === 0) {
-        toast("Please select only PDF, TXT, HTML, JSON, CSV or XLSX files.");
+        toast({ description: "Please select only PDF, TXT, HTML, JSON, CSV or XLSX files.",
+          variant: "destructive",
+        });
         return;
       }
 
@@ -143,7 +147,7 @@ const Labs = () => {
     setIsDragging(false);
 
     if (loading) {
-      toast("Please wait for the current upload.");
+      toast({ description: "Please wait for the current upload."});
       return;
     }
 
@@ -161,7 +165,9 @@ const Labs = () => {
       );
 
       if (allowedFiles.length === 0) {
-        toast("Please drop only PDF, TXT, HTML, JSON, CSV or XLSX files.");
+        toast({ description: "Please drop only PDF, TXT, HTML, JSON, CSV or XLSX files.",
+          variant: "destructive",
+        });
         return;
       }
 
@@ -196,13 +202,16 @@ const Labs = () => {
                   Your files
                 </div>
                 <div className="flex w-full flex-wrap gap-2">
+
                   {files.map((file: FileType, index) => (
                     <FileTag
                       key={file.name}
                       thisFile={file}
                       handleRemoveFile={() => handleRemoveFile(index)}
+
                     />
                   ))}
+
                   <SkeletonFileTag
                     loading={loading}
                     onFileChange={onFileChange}
