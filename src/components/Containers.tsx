@@ -46,7 +46,7 @@ export const ModuleContainer = ({
 	return (
 		<div
 			className={cn(
-				"ml-4 bg-[#161617] rounded-3xl h-[calc(100vh-64px)] flex flex-1 flex-col items-start px-12 py-8 overflow-x-hidden",
+				" bg-[#161617] rounded-3xl h-[calc(100vh-64px)] flex flex-1 flex-col items-start px-12 py-8 overflow-x-hidden",
 				className
 			)}
 			{...props}

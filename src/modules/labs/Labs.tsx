@@ -180,7 +180,7 @@ const Labs = () => {
       onDragOver={handleDragOver}
       onDrop={handleDrop}
       onDragLeave={handleDragLeave}
-      className="ml-4 bg-transparent flex h-[calc(100vh-64px)]"
+      className=" bg-transparent flex h-[calc(100vh-64px)]"
     >
       <div
         className={`bg-[#161617] rounded-3xl h-[calc(100vh-64px)] flex flex-1 flex-col items-start p-4 gap-2 overflow-x-hidden ${

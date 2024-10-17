@@ -79,7 +79,7 @@ const Journal = () => {
   };
 
   return (
-    <div className="ml-4 bg-[#161617] rounded-3xl h-[calc(100vh-64px)]  items-start px-12 py-8 overflow-x-hidden">
+    <div className=" bg-[#161617] rounded-3xl h-[calc(100vh-64px)]  items-start px-12 py-8 overflow-x-hidden">
       <div className="w-full">
         <div className="w-full flex justify-end">
           <button

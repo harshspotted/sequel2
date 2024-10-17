@@ -49,7 +49,7 @@ const Therapies = () => {
 	};
 
 	return (
-		<div className="ml-4 bg-[#161617] rounded-3xl h-[calc(100vh-64px)] flex flex-col items-center justify-center p-8">
+		<div className=" bg-[#161617] rounded-3xl h-[calc(100vh-64px)] flex flex-col items-center justify-center p-8">
 			<div className="flex w-full flex-1 overflow-y-auto overflow-x-hidden pr-1">
 				<div className="flex flex-col w-full flex-1 overflow-auto pr-1 px-4 pt-4">
 					<div className="flex w-full justify-between items-center mb-8">
