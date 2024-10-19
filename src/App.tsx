@@ -10,9 +10,9 @@ import Chat from "./modules/chat/Chat";
 import { getSelectedAIConfiguration } from "./helpers/storage";
 import Supplements from "./modules/supplements/Supplements";
 import Therapies from "./modules/therapies/Therapies";
-import Videos from "./modules/videos/Videos";
+//import Videos from "./modules/videos/Videos";
 import Tests from "./modules/tests/Tests";
-import Organs from "./modules/organs/Organs";
+//import Organs from "./modules/organs/Organs";
 import Insights from "./modules/insights/Insights";
 import { Toaster } from "./components/ui/toaster";
 
