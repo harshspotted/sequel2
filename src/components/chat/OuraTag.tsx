@@ -1,4 +1,4 @@
-import { ReactComponent as OuraIcon } from "src/assets/icons/oura-logo.svg";
+import OuraIcon  from "../../../src/assets/icons/oura-logo.svg";
 
 type Props = {
   label: string;

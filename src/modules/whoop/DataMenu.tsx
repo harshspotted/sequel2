@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import WhoopTag from "src/components/chat/WhoopTag";
-import Spinner from "src/components/spinner";
+import WhoopTag from "../../../src/components/chat/WhoopTag";
+import Spinner from "../../../src/components/spinner";
 
 type Props = {
   show: boolean;

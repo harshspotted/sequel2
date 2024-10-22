@@ -10,12 +10,12 @@ import {
 	storeOuraFetchedDay,
 	storeOuraRefreshToken,
 	storeOuraToken,
-} from "src/helpers/storage";
+} from "../../../src/helpers/storage";
 import axios from "axios";
 import DataMenu from "./DataMenu";
 import { AreaChart, BarChart, Card } from "@tremor/react";
-import Spinner from "src/components/spinner";
-import { makeInsight } from "src/helpers/utils/makeInsight";
+import Spinner from "../../../src/components/spinner";
+import { makeInsight } from "../../../src/helpers/utils/makeInsight";
 
 const myWindow = window;
 const CHART_SIZE = 90;

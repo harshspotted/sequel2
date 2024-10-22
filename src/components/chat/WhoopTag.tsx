@@ -1,4 +1,4 @@
-import { ReactComponent as WhoopIcon } from "src/assets/icons/whoop-logo.svg";
+import WhoopIcon from "../../assets/icons/whoop-logo.svg";
 
 type Props = {
   label: string;

@@ -1,15 +1,15 @@
 import classNames from "classnames";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import DocsIcon from "../../assets/module-icons/supplements.png";
-// import WhoopIcon from "../../assets/module-icons/whoop.png";
-// import OuraIcon from "../../assets/module-icons/oura.png";
+import WhoopIcon from "../../assets/module-icons/whoop.png";
+import OuraIcon from "../../assets/module-icons/oura.png";
 import JournalIcon from "../../assets/module-icons/notes.png";
 import ChatIcon from "../../assets/module-icons/chat.png";
-//import SyncIcon from "../../assets/module-icons/walkthrough.png";
+import SyncIcon from "../../assets/module-icons/walkthrough.png";
 import SettingsIcon from "../../assets/module-icons/labs.png";
 import LogoIcon from "../../assets/module-icons/tests.png";
 import ScratchPad from "../../assets/module-icons/therapy.png";
-//import OrgansIcon from "../../assets/module-icons/organs.png";
+import OrgansIcon from "../../assets/module-icons/organs.png";
 import ConnectIcon from "../../assets/module-icons/connect.png";
 
 const MENU = [
@@ -19,25 +19,25 @@ const MENU = [
     path: "/chat",
     icon: ChatIcon,
   },
-  //   // {
-//   //   title: "Organs",
-//   //   subtitle: "Detailed analysis about your organs.",
-//   //   path: "/organs",
-//   //   icon: OrgansIcon,
-//   //   className: "w-14 h-14 mr-2",
-//   // },
+    {
+    title: "Organs",
+    subtitle: "Detailed analysis about your organs.",
+    path: "/organs",
+    icon: OrgansIcon,
+    className: "w-14 h-14 mr-2",
+  },
   {
     title: "Insights",
     subtitle: "Thoughtful insights about your data",
     path: "/insights",
     icon: ConnectIcon,
   },
-  //   // {
-//   //   title: "Guides",
-//   //   subtitle: "Walkthroughs, videos & more",
-//   //   path: "/videos",
-//   //   icon: SyncIcon,
-//   // },
+    {
+    title: "Guides",
+    subtitle: "Walkthroughs, videos & more",
+    path: "/videos",
+    icon: SyncIcon,
+  },
   {
     title: "Journal",
     subtitle: "Keep track of what matters",
@@ -50,19 +50,19 @@ const MENU = [
     path: "/sheets",
     icon: SettingsIcon,
   },
-   // {
-//   //   title: "Whoop",
-//   //   subtitle: "Track sleep, workouts & more.",
-//   //   path: "/whoop",
-//   //   icon: WhoopIcon,
-//   // },
-//   // {
-//   //   title: "Oura",
-//   //   subtitle: "All your Oura data in one place",
-//   //   path: "/oura",
-//   //   icon: OuraIcon,
-//   //   className: "w-14 h-14 mr-2",
-//   // },
+   {
+    title: "Whoop",
+    subtitle: "Track sleep, workouts & more.",
+    path: "/whoop",
+    icon: WhoopIcon,
+  },
+  {
+    title: "Oura",
+    subtitle: "All your Oura data in one place",
+    path: "/oura",
+    icon: OuraIcon,
+    className: "w-14 h-14 mr-2",
+  },
   {
     title: "Supplements",
     subtitle: "Stay on top of your game",

@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import OuraTag from "src/components/chat/OuraTag";
-import Spinner from "src/components/spinner";
+import OuraTag from "../../../src/components/chat/OuraTag";
+import Spinner from "../../../src/components/spinner";
 
 type Props = {
   show: boolean;
